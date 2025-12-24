@@ -67,4 +67,35 @@ body { background: var(--bg-dark); color: var(--text-main); display: flex; min-h
 .post-card p { color: var(--text-dim); line-height: 1.6; }
 
 .hidden { display: none !important; }
-.tag{ border-radius: 8px; padding: 5px; margin: 10px 0 0 0px;}
+/* Estilização Profissional das Tags */
+.tag {
+    background-color: #ffffff; /* Fundo Branco */
+    color: #000000;            /* Texto Preto */
+    padding: 4px 14px;
+    border-radius: 20px;       /* Formato arredondado/pill */
+    font-size: 0.7rem;
+    font-weight: 800;          /* Texto bem definido */
+    text-transform: uppercase; /* Deixa o visual mais "técnico" */
+    letter-spacing: 0.8px;     /* Espaçamento entre letras para elegância */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+    cursor: default;
+    border: 1px solid transparent;
+}
+
+/* Efeito sutil ao passar o mouse no card pai ou na própria tag */
+.post-card:hover .tag {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
+    background-color: #f0f0f0; /* Cinza claríssimo no hover */
+}
+
+/* Variação opcional para tags de informação/secundárias */
+.tag.info {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}

@@ -7,7 +7,8 @@
             { "label": "CGNAT", "arquivo": "cgnat.html" },
             { "label": "IPv4 x IPv6", "arquivo": "ipv4ipv6.html" },
             { "label": "Protocolo TR-069", "arquivo": "tr069.html" },
-            { "label": "Recursos Wi-Fi Avançados", "arquivo": "tecnologias-wifi.html" }
+            { "label": "Recursos Wi-Fi Avançados", "arquivo": "tecnologias-wifi.html" },
+            { "label": "Wi-Fi ac / ax / be", "arquivo": "wifi.html" }
         ]
     },
     {
