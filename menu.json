@@ -9,8 +9,18 @@
             { "label": "Protocolo TR-069", "arquivo": "tr069.html" },
             { "label": "Recursos Wi-Fi Avançados", "arquivo": "tecnologias-wifi.html" },
             { "label": "Wi-Fi ac / ax / be", "arquivo": "wifi.html" }
+            
         ]
     },
+
+    {
+        "titulo": "Serviços",
+        "icone": "fas fa-network-wired",
+        "links": [
+            { "label": "MVNO", "arquivo": "chip.html" }
+        ]
+    },
+
     {
         "titulo": "Infraestrutura",
         "icone": "fas fa-network-wired",
