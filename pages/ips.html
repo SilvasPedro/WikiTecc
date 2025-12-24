@@ -1,0 +1,69 @@
+<article class="post-card">
+        <h2>Entendendo IP Público, Privado e CGNAT na ETECC</h2>
+    
+    <p>Para o suporte técnico, entender a diferença entre os tipos de IP é fundamental para diagnosticar problemas de acesso externo, jogos online e sistemas de câmeras.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+        <div style="background: #1a1a1a; padding: 15px; border-radius: 8px; border-top: 3px solid var(--primary-red);">
+            <h4 style="color: var(--primary-red); margin-bottom: 10px;"><i class="fas fa-globe"></i> IP Público</h4>
+            <p style="font-size: 0.9rem; color: var(--text-dim);">É o endereço visível em toda a internet. Único no mundo, permite que o dispositivo seja "encontrado" de qualquer lugar.</p>
+        </div>
+        <div style="background: #1a1a1a; padding: 15px; border-radius: 8px; border-top: 3px solid #555;">
+            <h4 style="color: #fff; margin-bottom: 10px;"><i class="fas fa-home"></i> IP Privado</h4>
+            <p style="font-size: 0.9rem; color: var(--text-dim);">Usado apenas dentro da rede local (casa do cliente). Exemplos comuns: 192.168.x.x ou 10.0.x.x.</p>
+        </div>
+    </div>
+
+    
+
+    <div style="background: #2a1010; padding: 20px; border-radius: 8px; border: 1px solid var(--primary-red); margin-bottom: 25px;">
+        <h3 style="color: #ff4d4d; margin-bottom: 10px;"><i class="fas fa-shield-alt"></i> CGNAT na ETECC Telecom</h3>
+        <p>Devido à escassez mundial de endereços IPv4, a ETECC utiliza o <strong>CGNAT (Carrier Grade NAT)</strong>. Isso significa que vários clientes compartilham o mesmo IP Público para navegar.</p>
+        
+        <div style="margin-top: 15px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 5px;">
+            <h4 style="margin-bottom: 5px; color: #fff;">Regra de Firewall Interna:</h4>
+            <p style="color: #ffb3b3; font-weight: bold;">
+                <i class="fas fa-exclamation-triangle"></i> Clientes em CGNAT possuem todas as portas de 1 a 1023 bloqueadas.
+            </p>
+            <p style="font-size: 0.85rem; margin-top: 8px; color: var(--text-dim);">
+                Essa medida é aplicada por segurança para proteger a infraestrutura e evitar ataques em portas de serviços críticos (HTTP, FTP, SSH, etc).
+            </p>
+        </div>
+    </div>
+
+    <h3>Impacto Técnico (Acesso Externo)</h3>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 15px; background: #1a1a1a; font-size: 0.9rem;">
+        <thead>
+            <tr style="border-bottom: 2px solid var(--primary-red); color: var(--primary-red);">
+                <th style="padding: 12px; text-align: left;">Faixa de Portas</th>
+                <th style="padding: 12px; text-align: left;">Status no CGNAT</th>
+                <th style="padding: 12px; text-align: left;">Uso Comum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid #333;">
+                <td style="padding: 12px;"><strong>1 - 1023</strong></td>
+                <td style="padding: 12px; color: #ff4d4d;">Bloqueadas</td>
+                <td style="padding: 12px;">Serviços de Sistema (Web, E-mail, SSH)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #333;">
+                <td style="padding: 12px;"><strong>1024 - 65535</strong></td>
+                <td style="padding: 12px; color: #00ff00;">Disponíveis*</td>
+                <td style="padding: 12px;">Jogos, Apps, P2P (Sujeito a redirecionamento)</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 10px;">*Nota: Mesmo portas altas podem não funcionar em CGNAT sem um IP Fixo ou IP Público exclusivo.</p>
+
+    <div style="margin-top: 30px; padding: 15px; background: #222; border-radius: 8px;">
+        <h4 style="margin-bottom: 10px;"><i class="fas fa-info-circle"></i> O que responder ao cliente?</h4>
+        <ul style="margin-left: 20px; color: var(--text-dim); line-height: 1.6;">
+            <li>Se o cliente precisar abrir portas para <strong>DVR (Câmeras)</strong> ou <strong>Servidores</strong>, ele provavelmente precisará da contratação de um <strong style="color: #fff;">IP Fixo</strong>.</li>
+            <li>Para jogos online, o CGNAT pode causar "NAT Moderado" ou "NAT Estrito".</li>
+            <li>O bloqueio das portas 1-1023 é uma camada de proteção da ETECC para evitar invasões nos roteadores dos assinantes.</li>
+        </ul>
+    </div>
+        <div class="post-header">
+        <span class="date">Atualizado em: 24 Dez 2025</span>
+    </div>
+</article>

@@ -1,0 +1,39 @@
+[
+        {
+        "titulo": "Atendimento",
+        "icone": "fas fa-headset",
+        "links": [
+            { "label": "Tipos de IP", "arquivo": "ips.html" },
+            { "label": "CGNAT", "arquivo": "cgnat.html" },
+            { "label": "IPv4 x IPv6", "arquivo": "ipv4ipv6.html" },
+            { "label": "Protocolo TR-069", "arquivo": "tr069.html" },
+            { "label": "Recursos Wi-Fi Avançados", "arquivo": "tecnologias-wifi.html" }
+        ]
+    },
+    {
+        "titulo": "Infraestrutura",
+        "icone": "fas fa-network-wired",
+        "links": [
+            { "label": "Configuração de ONUs", "arquivo": "config-onu.html" },
+            { "label": "Diagramas de Rede", "arquivo": "diagramas.html" },
+            { "label": "Troubleshooting", "arquivo": "troubleshoot.html" }
+        ]
+    },
+
+    {
+        "titulo": "Ferramentas",
+        "icone": "fas fa-tools",
+        "links": [
+            { "label": "Zabbix", "arquivo": "zabbix.html" },
+            { "label": "Acesso CRM", "arquivo": "crm.html" }
+        ]
+    },
+        {
+        "titulo": "Dashboards",
+        "icone": "fas fa-dashboard",
+        "links": [
+            { "label": "Feedback", "arquivo": "zabbix.html" },
+            { "label": "Desempenho", "arquivo": "crm.html" }
+        ]
+    }
+]
