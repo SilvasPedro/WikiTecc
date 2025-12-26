@@ -1,20 +1,43 @@
+/* --- ESTILIZAÇÃO DA BARRA DE ROLAGEM (SCROLLBAR) --- */
+/* Para navegadores Chrome, Edge e Safari */
+::-webkit-scrollbar {
+    width: 8px; /* Largura da barra vertical */
+    height: 8px; /* Altura da barra horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background: #121212; /* Cor do fundo da trilha */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333; /* Cor da barra em repouso */
+    border-radius: 10px;
+    border: 2px solid #121212; /* Espaço entre a barra e a borda */
+    transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-red); /* Cor da barra no hover (Vermelho) */
+}
+
+/* Para Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #121212;
+}
+
+/* --- VARIÁVEIS E CONFIGURAÇÕES GERAIS --- */
 :root {
+    --bg-dark: #121212;
     --bg-surface: #1a1a1a;
     --bg-card: #242424;
-
-    /* Vermelho mais leve e desaturado para melhor leitura */
-    --primary-red: #ff6b6b;
-    --bg-dark: #121212;
     --card-bg: #1e1e1e;
-    --text-main: #e0e0e0;
-    --text-dim: #b0b0b0;
-    --accent-yellow: #ff0000;
-    --accent-green: #81C784;
-
-
+    --primary-red: #ff6b6b;
     --text-main: #ffffff;
     --text-dim: #b0b0b0;
     --border: #333;
+    --accent-yellow: #ff0000;
+    --accent-green: #81C784;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -25,23 +48,18 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 20px;
 }
 
-/* Cabeçalho */
-.post-header {
-    margin-bottom: 30px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 20px;
-}
-
-/* Sidebar */
+/* --- SIDEBAR --- */
 .sidebar {
     width: 280px;
     background: var(--bg-surface);
@@ -49,6 +67,9 @@ body {
     position: fixed;
     height: 100vh;
     z-index: 100;
+    padding: 0; /* Removido padding para o scroll colar no canto */
+    display: flex;
+    flex-direction: column;
 }
 
 .logo {
@@ -61,34 +82,13 @@ body {
     color: var(--primary-red);
 }
 
-h2 {
-    color: #fff;
-    font-size: 2rem;
-    margin-top: 10px;
-}
-
-h3 {
-    color: var(--primary-red);
-    margin-top: 40px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 10px;
-}
-
-h4 {
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-/* Menu Dinâmico */
 .menu {
     padding: 15px 0;
-    height: calc(100vh - 100px);
-    overflow-y: auto;
+    flex-grow: 1;
+    overflow-y: auto; /* Permite scroll apenas no menu se necessário */
 }
 
+/* --- MENU DINÂMICO --- */
 .section-trigger {
     width: 100%;
     padding: 15px 20px;
@@ -147,64 +147,22 @@ h4 {
     background: #1d1d1d;
 }
 
-/* Main Content */
+/* --- CONTEÚDO PRINCIPAL --- */
 .content {
     margin-left: 280px;
-    flex: 1;
-    padding: 30px;
-}
-
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
-}
-
-/* Pesquisa */
-.search-container {
-    position: relative;
-    flex: 0 1 400px;
-}
-
-#search-input {
-    width: 100%;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 10px 15px 10px 40px;
-    border-radius: 20px;
-    color: white;
-    transition: var(--transition);
-}
-
-#search-input:focus {
-    outline: none;
-    border-color: var(--primary-red);
-    box-shadow: 0 0 10px rgba(230, 0, 0, 0.2);
-}
-
-.search-icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-dim);
-}
-
-/* Cards de Postagem */
-.feed {
-    transition: var(--transition);
+    padding: 40px;
+    min-height: 100vh;
 }
 
 .post-card {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto 40px;
     background: var(--card-bg);
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-left: 4px solid transparent;
+    transition: var(--transition);
 }
 
 .post-card:hover {
@@ -212,20 +170,11 @@ h4 {
     border-left-color: var(--primary-red);
 }
 
-.post-card h2 {
-    margin-bottom: 10px;
-}
+h2 { color: #fff; font-size: 2rem; margin-top: 10px; }
+h3 { color: var(--primary-red); margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+p { color: var(--text-dim); margin-bottom: 15px; }
 
-.post-card p {
-    color: var(--text-dim);
-    line-height: 1.6;
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* Estilização Profissional das Tags */
+/* Tags */
 .tag {
     background: rgba(255, 107, 107, 0.1);
     color: var(--primary-red);
@@ -237,309 +186,5 @@ h4 {
     text-transform: uppercase;
 }
 
-
-/* Efeito sutil ao passar o mouse no card pai ou na própria tag */
-.post-card:hover .tag {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
-    background-color: #f0f0f0;
-    /* Cinza claríssimo no hover */
-}
-
-/* Variação opcional para tags de informação/secundárias */
-.tag.info {
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-}
-
-/* Links de Acesso */
-.link-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
-    margin: 20px 0;
-}
-
-.link-button {
-    background: #252525;
-    padding: 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--primary-red);
-    border: 1px solid #333;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.link-button:hover {
-    background: #2a2a2a;
-    border-color: var(--primary-red);
-}
-
-/* Componentes de Alerta/Dica */
-aside {
-    background: rgba(241, 196, 15, 0.1);
-    border-left: 4px solid var(--accent-yellow);
-    padding: 15px;
-    border-radius: 4px;
-    margin: 20px 0;
-    color: var(--text-main);
-}
-
-/* Imagens e Grids */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid #333;
-    display: block;
-    margin: 15px 0;
-}
-
-.img-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.img-card {
-    background: #000;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.img-card span {
-    font-size: 0.75rem;
-    color: var(--text-dim);
-}
-
-/* Tabelas */
-.table-container {
-    overflow-x: auto;
-    margin: 20px 0;
-    border-radius: 8px;
-    border: 1px solid #333;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #1a1a1a;
-    font-size: 0.9rem;
-}
-
-th {
-    background: #252525;
-    color: var(--primary-red);
-    padding: 12px;
-    text-align: left;
-}
-
-td {
-    padding: 12px;
-    border-bottom: 1px solid #333;
-    color: var(--text-dim);
-}
-
-/* Estilo para listas de dispositivos */
-.device-list {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.device-card {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 8px;
-    border-top: 3px solid var(--primary-red);
-}
-
-/* Sidebar de Operadores */
-.sidebar {
-    width: 250px;
-    background: #000;
-    border-right: 1px solid #333;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar h2 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: var(--primary-red);
-}
-
-.operator-btn {
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: var(--text-dim);
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    text-align: left;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.operator-btn:hover,
-.operator-btn.active {
-    background: var(--primary-red);
-    color: white;
-    border-color: var(--primary-red);
-}
-
-/* Área de Conteúdo */
-.main-content {
-    flex-grow: 1;
-    padding: 40px;
-    overflow-y: auto;
-}
-
-.feedback-card {
-    max-width: 900px;
-    margin: 0 auto;
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.header-report {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--primary-red);
-    padding-bottom: 15px;
-    margin-bottom: 25px;
-}
-
-.header-report h1 {
-    margin: 0;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-}
-
-.date-emission {
-    text-align: right;
-    font-size: 0.8rem;
-    color: var(--text-dim);
-}
-
-/* Tabela de Indicadores */
-.table-feedback {
-    width: 100%;
-    border-collapse: collapse;
-    background: #1a1a1a;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.table-feedback th {
-    background: #252d3a;
-    color: white;
-    padding: 15px;
-    text-align: left;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-}
-
-.table-feedback th.diff-header {
-    background: var(--primary-red);
-}
-
-.table-feedback td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #333;
-    font-size: 0.9rem;
-}
-
-.val-current {
-    font-weight: bold;
-    color: white;
-}
-
-.diff-pos {
-    color: var(--accent-green);
-    font-weight: bold;
-}
-
-.diff-neg {
-    color: var(--accent-yellow);
-    font-weight: bold;
-}
-
-/* Estilo para TME/TMA */
-.time-cell {
-    font-family: 'Courier New', monospace;
-}
-
-/* Apenas ajustes nos botões e comportamento de rolagem */
-html {
-    scroll-behavior: smooth;
-}
-
-.sidebar {
-    width: 280px;
-    background: #1a1a1a;
-    height: 100vh;
-    position: fixed;
-    padding: 20px;
-    overflow-y: auto;
-}
-
-/* Estilização dos Botões (Links de Âncora) */
-.op-link {
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    margin-bottom: 8px;
-    color: #ccc;
-    text-decoration: none;
-    background: #252525;
-    border-radius: 8px;
-    border-left: 4px solid transparent;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.op-link i {
-    margin-right: 12px;
-    font-size: 1.1rem;
-}
-
-.op-link:hover {
-    background: #333;
-    color: #fff;
-    border-left: 4px solid #ff6b6b;
-    transform: translateX(5px);
-}
-
-/* Destaque visual quando o link é clicado */
-.op-link:active {
-    background: #ff6b6b;
-    color: white;
-}
-
-.main-content {
-    margin-left: 320px;
-    padding: 20px;
-}
-
-/* Espaçamento entre os cards para a rolagem não ficar colada */
-.feedback-card {
-    margin-bottom: 80px;
-    scroll-margin-top: 30px;
-    /* Faz a rolagem parar um pouco antes do topo */
-}
+/* Utilitários */
+.hidden { display: none !important; }
