@@ -14,10 +14,12 @@
     },
 
     {
-        "titulo": "Serviços",
+        "titulo": "Suporte Premium",
         "icone": "fas fa-network-wired",
         "links": [
-            { "label": "MVNO", "arquivo": "chip.html" }
+            { "label": "MVNO", "arquivo": "chip.html" },
+            { "label": "Telefonia", "arquivo": "telefonia.html" },
+            { "label": "Serviços de Televisão", "arquivo": "tv.html" }
         ]
     },
 
@@ -43,8 +45,8 @@
         "titulo": "Dashboards",
         "icone": "fas fa-dashboard",
         "links": [
-            { "label": "Feedback", "arquivo": "zabbix.html" },
-            { "label": "Desempenho", "arquivo": "crm.html" }
+            { "label": "Em breve", "arquivo": "" },
+            { "label": "Em breve", "arquivo": "" }
         ]
     }
 ]
