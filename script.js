@@ -105,3 +105,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ... código anterior de carregar menu ...
+
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('full-image');
+    const closeBtn = document.querySelector('.modal-close');
+    const contentArea = document.getElementById('main-content');
+
+    // Evento de clique na área de conteúdo (delegação de evento)
+    contentArea.addEventListener('click', (e) => {
+        if (e.target.tagName === 'IMG') {
+            modal.style.display = "block";
+            modalImg.src = e.target.src;
+        }
+    });
+
+    // Fechar modal ao clicar no X ou fora da imagem
+    closeBtn.onclick = () => modal.style.display = "none";
+    modal.onclick = (e) => {
+        if (e.target === modal) modal.style.display = "none";
+    };
+});

@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual Técnico - Telefonia e TV</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
-</head>
-
+<article class="post-card">
     <div class="post-header">
         <span class="tag">Telefonia Fixa</span>
         <span class="tag">VoIP</span>
@@ -49,117 +39,44 @@
     </div>
 
     <h3 class="step-title"><i class="fas fa-network-wired"></i> 2. Configuração na OLT (Provisionamento)</h3>
-    
     <p style="margin-bottom: 10px;">1. Selecionar OLT de destino e acessar <strong>NGN Configuration</strong>:</p>
-    <img src="../source/img/telefonia/ngn.png" alt="NGN Config">
+    <img src="source/img/telefonia/ngn.png" style="max-height: 200px; width: auto;" alt="NGN Config">
 
     <p style="margin-bottom: 10px;">2. Clique em <strong>Add</strong> e preencha os parâmetros abaixo:</p>
-    <img src="../source/img/telefonia/addolt.png" alt="Add OLT">
-
-    <table style="width: 100%; border-collapse: collapse; background: #1a1a1a; font-size: 0.85rem; margin-top: 15px; border-radius: 8px; overflow: hidden;">
-        <thead>
-            <tr style="background: #252525; color: var(--primary-red);">
-                <th style="padding: 12px; text-align: left;">Campo</th>
-                <th style="padding: 12px; text-align: left;">Valor</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="border-bottom: 1px solid #333;">
-                <td style="padding: 10px;">Service Name</td>
-                <td><code style="color: #fff;">Telefonia@TIP</code></td>
-            </tr>
-            <tr style="border-bottom: 1px solid #333;">
-                <td style="padding: 10px;">Signaling VLAN</td>
-                <td>120</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #333;">
-                <td style="padding: 10px;">SVLAN State</td>
-                <td>Disable</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #333;">
-                <td style="padding: 10px;">IP Config Mode</td>
-                <td>DHCP</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #333;">
-                <td style="padding: 10px;">DHCP Option60</td>
-                <td><strong style="color: #81C784;">Enable</strong></td>
-            </tr>
-            <tr> 
-                <td><hr> </td>
-                <td> <hr></td>
-             </tr>
-            <tr style="border-bottom: 1px solid #333;">
-                <td style="padding: 10px;">User Index</td>
-                <td>Inserir de acordo com ordem</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #333;">
-                <td style="padding: 10px;">Endpoint / SIP User</td>
-                <td>Telefone do Cliente</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #333;">
-                <td style="padding: 10px;">SIP User Password</td>
-                <td><code style="color: #fff;">#Etecc111426</code></td>
-            </tr>
-            <tr>
-                <td style="padding: 10px;">Confirm Password</td>
-                <td><code style="color: #fff;">#Etecc111426</code></td>
-            </tr>
-            
-        </tbody>
-    </table>
+    <img src="source/img/telefonia/addolt.png" style="max-height: 350px; width: auto;" alt="Add OLT">
 
     <div style="background: #1e1e1e; padding: 15px; border-radius: 8px; margin-top: 20px;">
         <h4 style="color: var(--primary-red); border-bottom: 1px solid #333; padding-bottom: 5px;">Configurando Port Service</h4>
         <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 10px;">
             Caminho: Port Service Config > Voice Port > FSX1 > Selecionar User Index.
         </p>
-        <img src="../source/img/telefonia/voiceport.png" alt="Voice Port Config">
+        <img src="source/img/telefonia/voiceport.png" style="max-height: 180px; width: auto;" alt="Voice Port Config">
     </div>
 
     <h3 class="step-title"><i class="fas fa-microchip"></i> 3. Configuração nos Equipamentos (ONU/ONT)</h3>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
-        <div style="background: #1e1e1e; padding: 15px; border-radius: 8px; display: flex; flex-direction: column;">
-            <h4 style="color: var(--primary-red); border-bottom: 1px solid #333; padding-bottom: 5px;">Huawei</h4>
-            <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 10px; flex-grow: 1;">
+    <div style="display: flex; flex-direction: column; gap: 25px; margin-top: 15px;">
+        <div style="background: #1e1e1e; padding: 20px; border-radius: 8px; border-top: 3px solid var(--primary-red);">
+            <h4 style="color: var(--primary-red); border-bottom: 1px solid #333; padding-bottom: 8px; margin-bottom: 15px;">Huawei</h4>
+            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px;">
                 Criar o Perfil de VoIP dentro da ONT seguindo o modelo padrão.
             </p>
-            <img src="../source/img/telefonia/huawei.png" class="img-standard" alt="Huawei Config">
+            <img src="source/img/telefonia/huawei.png" style="max-width: 100%; max-height: 450px; display: block; margin: 0 auto;" alt="Huawei Config">
         </div>
-        <div style="background: #1e1e1e; padding: 15px; border-radius: 8px; display: flex; flex-direction: column;">
-            <h4 style="color: var(--primary-red); border-bottom: 1px solid #333; padding-bottom: 5px;">TP-Link</h4>
-            <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 10px; flex-grow: 1;">
+        <div style="background: #1e1e1e; padding: 20px; border-radius: 8px; border-top: 3px solid #00acc1;">
+            <h4 style="color: #00acc1; border-bottom: 1px solid #333; padding-bottom: 8px; margin-bottom: 15px;">TP-Link</h4>
+            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px;">
                 Advanced > Telephony > Telephone Number > Inserir dados SIP.
             </p>
-            <img src="../source/img/telefonia/tplink.png" class="img-standard" alt="TP-Link Config">
+            <img src="source/img/telefonia/tplink.png" style="max-width: 100%; max-height: 450px; display: block; margin: 0 auto;" alt="TP-Link Config">
         </div>
     </div>
 
     <h3 class="step-title"><i class="fas fa-bolt"></i> 4. Monitoramento no Zeus</h3>
     <p style="color: var(--text-dim); margin-bottom: 15px;">Acesse: <strong>Operação > Usuários SIP</strong>.</p>
-    
-    <img src="../source/img/telefonia/infosip.png" alt="Painel Zeus">
-
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.85rem; color: var(--text-dim);">
-        <ul style="list-style: none; padding: 0;">
-            <li><strong>Usuário:</strong> Número do telefone.</li>
-            <li><strong>Senha:</strong> Senha de acesso SIP.</li>
-            <li><strong>Domínio:</strong> 138.94.87.116</li>
-            <li><strong>Grupo:</strong> <strong> 1301 </strong> - Pessoa física. / <strong> 1302 </strong> - Pessoa jurídica.</li>
-            <li><strong>Limite/Limite Usado:</strong> Valores fícticios, não trabalhamos com limite.</li>
-        </ul>
-        <ul style="list-style: none; padding: 0;">
-            <li><strong style="color: green;">Registrado (Sim):</strong> Configurado e Online.</li>
-            <li><strong style="color: red;"> Registrado (Não):</strong> Pendente/Offline.</li>
-        </ul>
-    </div>
+    <img src="source/img/telefonia/infosip.png" style="max-height: 400px; width: auto;" alt="Painel Zeus">
 
     <div style="background: #1a1a1a; padding: 20px; border-radius: 12px; margin-top: 25px; border-left: 4px solid var(--primary-red);">
         <h4 style="margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 5px;">Legenda de Status e Bloqueios</h4>
-        <ul style="list-style: none; font-size: 0.9rem; color: var(--text-dim); line-height: 2; padding: 0;">
-            <li><i class="fas fa-check-circle" style="color: #81C784;"></i> <strong>Liberado:</strong> Sem código de bloqueio.</li>
-            <li><i class="fas fa-lock" style="color: var(--primary-red);"></i> <strong>Bloqueio 1111:</strong> Parcial (Financeiro).</li>
-            <li><i class="fas fa-lock" style="color: var(--primary-red);"></i> <strong>Bloqueio 2222:</strong> Total (Suspenso).</li>
-        </ul>
-        <img src="../source/img/telefonia/bloqsip.png" alt="Status de Bloqueio" style="margin-top: 15px;">
+        <img src="source/img/telefonia/bloqsip.png" alt="Status de Bloqueio" style="max-height: 400px; width: auto; margin-top: 15px;">
     </div>
 </article>
